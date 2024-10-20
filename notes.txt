@@ -1,0 +1,104 @@
+Do you need both package-lock.json and package.json? No.
+Do you need the package.json? Yes.
+Can you have a project with only the package-lock.json? No.
+The package.json is used for more than dependencies - like defining project properties, description, author & license information, scripts, etc. The package-lock.json is solely used to lock dependencies to a specific version number.
+package.json is the most important while package-lock is just for the version number.
+
+regex patterns should be raw strings so that the backslashes are included. a\+b\* would be interpreted as literal sequence a+b* where + and * are not treated as special regex characters. Take r'^a\+b\*[a-zA-Z]*[1-5]?$'. The remaining parts like [1-5]? will be interpreted as proper regex.
+
+raw strings cancel the backslash escape functionality.
+
+confusing because n has no special meaning but \n has special meaning but in regex ? has special meaning while escaping it \? removes that meaning and turns it a literal ?.
+
+json keys must be strings. python dict keys can be either string, number, or a tuple can be a key.
+
+* When importing from a python file, all top level code not in a function body will run.
+
+.filter in Django returns a QuerySet of each of the Word models. Serializer expects to take in a list of models with many=true arg.
+returned serializer.data will be the JSON.
+
+JSX elements are javascript objects.
+JSX are the html stuff in the js file.
+{} are used to go back to writing javascript within JSX.
+
+.map() returns a new array with a function applied to each element.
+const numbers = [65, 44, 12, 4];
+const newArr = numbers.map(myFunction) // [650, 440, 120, 40]
+function myFunction(num) {
+  return num * 10;
+}
+while .forEach *modifies* the array.
+
+When you pass an array of <li> elements to a <ul>, React automatically handles it by rendering each <li> as a child of the <ul>.
+Which is why this works: <ul>
+                            {displayResults.map((entry, index) => (
+                            <li key={index}>
+                                {entry.simplified}  {entry.pinyin}
+                            </li>
+                            ))}
+                        </ul>
+
+strings as the body of JSX will intuitively be body text.
+
+.split() splits a string into an array of substrings.
+.join() joins an array of substrings into a big string.
+
+.replace() with a string pattern will only replace the first occurence.
+use \g flag to replace all occurences.
+
+any files we include in the pages folder will be a new url route. the api folder is for backend url requests.
+files that start with an underscore such as _document.js will not create a path.
+
+making an api handler using only js takes in both the req and res as arguments of the function.
+ex: res.status(200).send("login page")
+    res.write(# an entire login form's html)
+
+field values in a form are by defualt empty string.
+
+.get() in python to access a key's value in a dictionary is preferred over [] notation.
+
+lexical scope is the outer scope. It is usually the most immediate parent scope. obviously all inner scopes can access their outer scopes. 
+
+so a closure would be a function that retains access to variables from its LEXICAL scope, even after the outer function has finished executing.
+
+const { page = 1, limit = 5, tags } = req.query;
+this grabs the page and limit properties. if they do not exist, defualt to 1 and 5 respectively.
+
+in python u can only use [] notation to access keys. in JS u can use both . notation and [] notation.
+
+analogy on javascript's non blocking behaviour:
+Imagine you’re a chef in a kitchen:
+You can only handle one task at a time (single-threaded).
+When you place a pot of water to boil (like an async task), you don’t just stand around waiting for it to boil (non-blocking).
+Instead, you move on to chopping vegetables, preparing ingredients, or other tasks while the water is boiling.
+Once the water boils (event occurs), you handle that task (e.g., add pasta) without skipping a beat, but you only do so after finishing whatever task you were already doing.
+
+consider this async function:
+async function getData() {
+  let data = await fetch("https://api.example.com/data");
+  console.log("Data fetched:", data);
+}
+getData();
+
+Without await, you would have to use .then() to get the result of fetch.
+With await, it makes it look like the function is waiting for the data synchronously, but behind the scenes, JavaScript keeps doing other things while fetch is being completed.
+
+To return an object in an arrow function, you need to wrap the object in parentheses to avoid confusion with the block syntax for a function body:
+const getObject = () => ({data: "success"});
+
+Javascript payload is sent to client side components that need interactivity and dynamic changes. No JS payload is sent to server side components that only fetch data and are rendered completely on the server. Server side comps generate a static HTML file that does not change.
+
+When you run npm install, it installs the dependencies specified in the package.json file in the current directory.
+
+When a token is sent back to the server (lets say a user is logging back in), that token is valid if it was signed with the inital private key. 
+The token is sent through the HTTP request's header.
+Here is how JWT can be used in an authentication flow:
+
+1. A user provides their credentials (e.g., username and password) and sends them to the server.
+2. The server validates the credentials. If they are correct, the server generates a JWT containing the user's information (in a claim) and signs it with a secret key.
+3. The server sends the JWT back to the user.
+4. The user stores the JWT (usually in the browser's local storage or as a cookie) and includes it in the Authorization header in subsequent requests to the server. If you’re using Descope, you can change how the JWT is stored here, under Token Response Method.
+5. When the user sends a new request with the JWT, the server decodes the JWT, and verifies its signature. If the token is valid, the server processes the request and returns the appropriate response.
+[Access Tokens](https://www.descope.com/learn/post/token-based-authentication)
+
+ctrl+z pauses a process. ctrl+c kills it, sends kill signal. ctrl+d sends keyboard interrupt or EOF.
