@@ -102,3 +102,5 @@ Here is how JWT can be used in an authentication flow:
 [Access Tokens](https://www.descope.com/learn/post/token-based-authentication)
 
 ctrl+z pauses a process. ctrl+c kills it, sends kill signal. ctrl+d sends keyboard interrupt or EOF.
+
+When we we're inside a terminal running commands the bash process is running to interpret those commands. The terminal itself is just the GUI.
