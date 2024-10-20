@@ -104,3 +104,5 @@ Here is how JWT can be used in an authentication flow:
 ctrl+z pauses a process. ctrl+c kills it, sends kill signal. ctrl+d sends keyboard interrupt or EOF.
 
 When we we're inside a terminal running commands the bash process is running to interpret those commands. The terminal itself is just the GUI.
+
+npm manages packages while npx is used to run them if they have a cli, ex. prisma.
