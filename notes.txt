@@ -106,3 +106,10 @@ ctrl+z pauses a process. ctrl+c kills it, sends kill signal. ctrl+d sends keyboa
 When we we're inside a terminal running commands the bash process is running to interpret those commands. The terminal itself is just the GUI.
 
 npm manages packages while npx is used to run them if they have a cli, ex. prisma.
+
+**keep in mind: sometimes hard to catch bugs occur due to not await-ing for a function call. this causes all subsequent code to run right after. ex:
+jwtVerify(token, new TextEncoder().encode(process.env.ACCESS_TOKEN_SECRET)); // no await
+console.log(payload);
+console.log("REACHED");
+return NextResponse.next();
+will immediately go to the protected route even if the token was invalid.
