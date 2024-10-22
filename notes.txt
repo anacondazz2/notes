@@ -129,3 +129,5 @@ sending a file through a form using postman is not possible (from my attempts). 
 prisma is not the database. it is the orm that allows you to query and write models to a database using a language of our choice that is not SQL.
 ORMs *generate* sql once their custom syntax is compiled. this is different from database adapters such as psycopg in which you are still using the language
 or your choice (python) but all the statements are sql. ex psycopg statement: cur.execute("SELECT * FROM users WHERE id = %s", (1,))
+
+react has a virtual dom where it first applies re-rendering. then it compares with the actual dom to figure out what needs to be updated.
