@@ -135,3 +135,5 @@ react has a virtual dom where it first applies re-rendering. then it compares wi
 
 if you declare a function to be async (possible even if you don't have any await's inside the function), but don't await for the result of this function, you will 
 get a Promise back, even if the function is technically completely synchronous.
+
+when you use await inside a function, you are calling an asynchronous function and awaiting for its result. the part to keep in mind is that if a function depends on an asynchronous call, that function itself becomes asynchronous and requires to be declared as async as well.
