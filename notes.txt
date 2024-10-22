@@ -115,3 +115,5 @@ return NextResponse.next();
 will immediately go to the protected route even if the token was invalid.
 
 react calls useeffect on mount, and once more on mount in react strict. useEffect is the solution to guaranteeing that state has been updated before we use it.
+
+sending a file through a form using postman is not possible (from my attempts). in order to do so use fetch().
